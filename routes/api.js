@@ -1,12 +1,16 @@
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
+console.log("api routes", Workout)
 
 router.post("/api/workouts", (req, res) => {
+  console.log("post")
   Workout.create({})
     .then(dbWorkout => {
+      console.log("data frome post", dbWorkout)
       res.json(dbWorkout);
     })
     .catch(err => {
+      console.log("error", err)
       res.json(err);
     });
 });
